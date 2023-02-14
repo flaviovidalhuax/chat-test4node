@@ -9,7 +9,7 @@ const success = ({status, data, message, res}) => {
 } 
 
 //? Para respuestas de errores
-const error = ({status, data, message, res, fields}) => {
+const error = ({status,data, message, res, fields}) => {
     res.status(status).json({
         error: true,
         status: status,

@@ -4,19 +4,20 @@ const User=require('../models/users.models')
 
 const findAllUser= async()=>{ 
     const data=await User.findAll({
-        atributes:{
-            exclud:['password', 'creatAt', 'updatedAt']
+        attributes:{
+            exclude:['password', 'creatAt', 'updatedAt']
         },
         where:{
-            status:'active'
+            status:true
         }
+
     })   
     return data
 }
 
 const findUserById=async(id)=>{
     const data=await User.findOne({
-        atributes:{
+        attributes:{
             exclude:['password','createAt','updatedAt']
         },
         where:{
@@ -27,7 +28,7 @@ const findUserById=async(id)=>{
 }
 const findUserByEmail= async(email)=>{
     const data=await User.findOne({
-        atributes:{
+        attributes:{
             exclude:['password', 'createAt','updatedAt']
         },
         where:{
@@ -37,16 +38,16 @@ const findUserByEmail= async(email)=>{
     return data
 }
 const creatUser=async(obj)=>{
-    const data=await User.creat({
+    const data=await User.create({ 
         id:uuid.v4(),
         firstName:obj.firstName,
-        lastNmae:obj.lastName,
+        lastName:obj.lastName,
         email:obj.email,
         password:obj.password,
-        profileImage:obj.profileImage,
-        IsActive:obj.IsActive,
+        profileImg:obj.profileImg,
+        IsActive:obj.IsActive, 
         phone:obj.phone,
-        status:obj.status 
+        status:obj.status   
     })
     return data
 }

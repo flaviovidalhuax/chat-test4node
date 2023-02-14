@@ -7,7 +7,7 @@ const Users=db.define('users',{
         primaryKey:true,
 
     },
-    firstNmae:{
+    firstName:{
         type:DataTypes.STRING,
         allowNull:false,
         validate:{
